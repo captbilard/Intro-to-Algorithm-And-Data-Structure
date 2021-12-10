@@ -11,3 +11,22 @@ class Node:
 
     def __repr__(self):
         return f'<Node data: {self.data}>'
+
+class Linked_List:
+
+    def __init__(self):
+        self.head = Node
+    
+    def is_empty(self):
+        return self.head == None
+    
+    def size(self):
+        current = self.head
+        count = 0
+
+        while current != None:
+            count += 1
+            current = current.next_node
+
+        return count
+    
