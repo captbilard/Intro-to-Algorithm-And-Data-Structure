@@ -45,6 +45,17 @@ class Linked_List:
         self.head = new_node
         return None
     
+    def search(self, key):
+        current = self.head
+
+        while current != None:
+            if current.data == key:
+                return current
+            else:
+                current = current.next_node  
+        return None
+
+    
     def __repr__(self):
         nodes = []
         current = self.head
@@ -55,7 +66,7 @@ class Linked_List:
             elif current.next_node == None:
                 nodes.append(f'[Tail: {current.data}]')
             else:
-                nodes.append(f'{current.data}')
+                nodes.append(f'[{current.data}]')
             
             current = current.next_node
         return "-> ".join(nodes)
