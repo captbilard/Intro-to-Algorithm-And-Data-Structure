@@ -3,6 +3,7 @@ class Node:
     An object for storing a single node of a linked list. Models two attributes
     data and the link to the next node in the list
     """
+
     data = None
     next_node = None
 
@@ -10,16 +11,16 @@ class Node:
         self.data = data
 
     def __repr__(self):
-        return f'<Node data: {self.data}>'
+        return f"<Node data: {self.data}>"
+
 
 class Linked_List:
-
     def __init__(self):
-        self.head = Node
-    
+        self.head = None
+
     def is_empty(self):
         return self.head == None
-    
+
     def size(self):
         """
         Returns the number of nodes in the list.
@@ -44,3 +45,17 @@ class Linked_List:
         self.head = new_node
         return None
     
+    def __repr__(self):
+        nodes = []
+        current = self.head
+        
+        while current:
+            if current == self.head:
+                nodes.append(f'[Head: {current.data}]')
+            elif current.next_node == None:
+                nodes.append(f'[Tail: {current.data}]')
+            else:
+                nodes.append(f'{current.data}')
+            
+            current = current.next_node
+        return "-> ".join(nodes)
