@@ -21,6 +21,10 @@ class Linked_List:
         return self.head == None
     
     def size(self):
+        """
+        Returns the number of nodes in the list.
+        Takes O(n) time
+        """
         current = self.head
         count = 0
 
@@ -29,4 +33,14 @@ class Linked_List:
             current = current.next_node
 
         return count
+
+    def add(self, data):
+        """
+        Adds data to the Head of the list.
+        Takes O(n) time
+        """
+        new_node = Node(data)
+        new_node.next_node = self.head
+        self.head = new_node
+        return None
     
