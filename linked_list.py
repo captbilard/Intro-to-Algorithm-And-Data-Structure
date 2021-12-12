@@ -44,7 +44,7 @@ class Linked_List:
         new_node.next_node = self.head
         self.head = new_node
         return None
-    
+
     def search(self, key):
         current = self.head
 
@@ -52,7 +52,7 @@ class Linked_List:
             if current.data == key:
                 return current
             else:
-                current = current.next_node  
+                current = current.next_node
         return None
 
     def insert(self, data, index):
@@ -64,32 +64,55 @@ class Linked_List:
         """
         if index == 0:
             return self.add(data)
-        
+
         new_node = Node(data)
-        current  = self.head
+        current = self.head
 
         position = index
 
         while position > 1:
             current = current.next_node
             position -= 1
-        
+
         prev_node = current.next_node
         new_node.next_node = prev_node
-        current.next_node = new_node 
+        current.next_node = new_node
 
+    def remove(self, key):
+        """
+        Removes node containing the data that matches the key
+        Returns the Node or None if the key doesn't exist
+        Takes O(n) time
+        """
+        current = self.head
+        previous = None
+        found = False
+
+        while current and found != True:
+            if current.data == key and current == self.head:
+                self.head = current.next_node
+                found = True
+            elif current.data == key:
+                next_node = current.next_node
+                previous.next_node = next_node
+                found = True
+            else:
+                previous = current
+                current = current.next_node
+
+        return current
 
     def __repr__(self):
         nodes = []
         current = self.head
-        
+
         while current:
             if current == self.head:
-                nodes.append(f'[Head: {current.data}]')
+                nodes.append(f"[Head: {current.data}]")
             elif current.next_node == None:
-                nodes.append(f'[Tail: {current.data}]')
+                nodes.append(f"[Tail: {current.data}]")
             else:
-                nodes.append(f'[{current.data}]')
-            
+                nodes.append(f"[{current.data}]")
+
             current = current.next_node
         return "-> ".join(nodes)
