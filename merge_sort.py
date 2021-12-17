@@ -60,3 +60,16 @@ def merge_sort(list):
 
     #returns the sorted list
     return merge(left, right)
+
+
+# Verification of sorting
+def verify(list):
+    """
+    Checks that the list is sorted by comparing the values of the list in a recursive manner
+    """
+
+    #Base Case
+    if len(list) <= 1:
+        return True
+    
+    return list[0] < list[1] and verify(list[1:])
