@@ -1,8 +1,11 @@
 def split_list(list):
     """
     Split list into two halves and return both halves
+
+    Takes 0(log n) time
     """
     midpoint = len(list) // 2
+    # Slicing is an expensive operation, according to the docs it takes 0(K), where K is the size of the slicing
     left_half = list[:midpoint]
     right_half = list[midpoint:]
 
@@ -13,6 +16,7 @@ def merge(left, right):
     """
     Combines two list into one and sorts them.
     Returns the sorted list
+    Takes 0(n log n)
     """
     new_list = []
 
@@ -45,9 +49,11 @@ def merge_sort(list):
     """
     Sorts a list is ascending order and returns a new list
 
-    Divide: Divide the list into two halves
-    Recursive: continue the same step from above
-    Merge: merge the sorted list into a new list
+    Divide: Divide the list into two equal halves
+    Conquer: Recursively sort the sublist created above
+    Combine: merge the sorted list into a new list
+
+    Takes 0(n log n) time
     """
 
     # Base case for the recursive function
