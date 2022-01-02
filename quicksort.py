@@ -1,3 +1,4 @@
+from ten_thousand import number_value
 def quicksort(values):
     """
         This sorts by picking a pivot, then seperatin the list into 2, left side contains 
@@ -19,3 +20,4 @@ def quicksort(values):
             right.append(value)
     return quicksort(left) + [pivot] + quicksort(right)
 
+quicksort(number_value)
